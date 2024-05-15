@@ -267,3 +267,14 @@ function saveUserCover(user, coverEncoded) {
         user.profilePictureType = profilePicture.type
     }
 }
+
+// Add products to store home page
+vendorRouter.get("/storepage", (req, res) => {
+    res.render("store_page")
+})
+
+// vendorRouter.get("/storepage", (req, res) => {
+//     async function getData() {
+//         const data = await Vendor.findById(req.params.id)
+//     }
+// })

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <%- include("partials/_head", {title: "Store page"}) %> 
+</head>
+<body>
+     <%- include('partials/_header.ejs') %> 
+     <section id="sub-header">
+        <a href="#"><img src="img/logo (1).png" class="logo" alt=""></a>
+        <div>
+            <ul id="subnavbar">
+                <li><a class="active" href="home_page.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
+            </ul>
+        </div>
+    </section> 
+
+     <section id="banner">
+        <h4>Trade-in-offer</h4>
+        <h3>Super value deals</h3>
+        <h2>On all products</h2>
+        <p>Save more with coipons & up to 70% off!</p>
+        <button>Shop Now</button>
+    </section> 
+
+     <section id="feature" class="section-p1">
+        <div class="flex flex-row justify-around flex-wrap min-w-[240px] [&>div]:w-[90%] sm:[&>div]:w-2/5  md:[&>div]:w-1/5">
+            <% if (locals.products != null) { %>
+                <% products.forEach(product => { %>
+                    <%- include('_card', {product}) %>
+                <% }); %>
+            <% } %>
+        </div>
+    </section>
+
+    <section>
+        <div class="flex">
+            <div class="w-full md:w-4/5">  
+                <% const products = []; %> 
+                <%products.forEach(product => { %>
+                    <%- include("partials/_product_container"); %>
+                 <% }); %>
+            </div>
+        </div>
+    </section> 
+
+     <!-- <section id="product1" class="section-p1">
+        <h3>Featured Products</h3>
+        <p>Summer Collection</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="img/f1.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+                <img src="img/f2.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+                <img src="img/f3.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+                <img src="img/f4.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="product2" class="section-p1">
+        <h3>New Products</h3>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="img/f5.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+                <img src="img/f6.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+                <img src="img/f7.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+                <img src="img/f8.jpg" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>T-shirts</h5>
+                    <div class="star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+            </div>
+    </section>  -->
+
+      
+</body>
+<script src="js/home_page.js"></script>
+</html>
