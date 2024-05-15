@@ -2322,9 +2322,10 @@ input::-webkit-outer-spin-button,
 }
 
 #user-drop-down-links {
-  padding: 6px 20px;
-  text-align: center;
   cursor: pointer;
+  min-width: 120px; 
+  display: inline-block;
+  padding: 8px 12px;
 }
 
 .sidemenu-transition-300 {

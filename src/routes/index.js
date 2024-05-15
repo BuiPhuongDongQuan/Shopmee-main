@@ -30,3 +30,11 @@ indexRouter.get("/contact-us", (req, res) => {
 indexRouter.get("/privacy-policy", (req, res) => {
     res.render("privacy_policy")
 })
+
+indexRouter.get("/term-of-service", (req, res) => {
+    res.render("term_of_service")
+})
+
+indexRouter.get("/faqs", (req, res) => {
+    res.render("faqs")
+})

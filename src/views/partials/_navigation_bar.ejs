@@ -6,68 +6,81 @@
 <!-- ID: s3978081, s3977773, s3979367, s3978481, s3978826 -->
 <!-- Acknowledgement: W3School, TailwindCss, ChatGPT, Passport documentation, RemixIcons, Freepik, Web Dev Simplified -->
 
-<div id="navigation-bar" class="w-full border-solid-1 border-b-gray-300">
-    <nav class="w-full flex justify-between px-4 md:px-12 py-4">
-        <!-- Logo -->
-        <div class="flex gap-2 cursor-pointer"
-            onclick="location.href='/'"
-        >
-            <img class="w-8" src="/svg/lazada.svg" alt="Alizada logo">
-            <div class="logo center-y float-left tracking-wider uppercase font-bold">Alizada</div>
+<div class="bg-gradient-to-t from-[#56CCF2] to-[#2F80ED] h-full">
+    <ul class="flex items-center gap-[1vw]">
+        <li><a class="hover:text-gray-500 ml-24 border-r-2 pr-4 text-white" href="/about-us">About us</a></li>
+        <% if (user) { %>
+            <% if (userType == "Customer") { %>
+                <!-- Customer page -->
+                <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/users/customer">Shop</a></li>
+            <% } else if (userType == "Vendor") { %>
+                <!-- Vendor page -->
+                <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/users/vendor">Products</a></li>
+            <% } else if (userType == "Shipper") { %>
+                <!-- Shipper page -->
+                <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/users/Shipper">Orders</a></li>
+            <% } %>
+        <% } else { %>
+            <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/users/customer">Shop</a></li>
+        <% } %>
+        <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/contact-us">Contact us</a></li>
+        <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/fees">Fees</a></li>
+        <li><a class="hover:text-gray-500  pr-4 text-white" href="/faqs">FAQs</a></li>
+      </ul>
+      <div class="container mx-auto px-4 py-8 flex items-center">
+        <!-- logo -->
+        <div class="cursor-pointer mr-auto md:w-48 flex-shrink-0 flex items-center gap-[1vw]" onclick="location.href='/'">
+          <img class="w-20" src="/svg/shopmee-logo.svg" alt="">
+          <div class="font-bold text-3xl text-white">Shopmee</div>
         </div>
-
-        <!-- Search bar -->
-        <!-- <div class="flex gap-4 justify-center w-1/2 md:w-1/3">
-            <form id="searchForm" class="inline-flex justify-end w-full" action="/users/customer" method="get">
-                <input class="px-4 py-[0.125rem] w-full border border-solid border-gray-500 rounded-l-2xl focus:outline-none focus:border-black" type="text" name="name" placeholder="Search" value="<%= locals.searchOption ?  searchOption.name : '' %>">
-                <button class="px-4 py-[0.125rem] border border-solid bg-white border-gray-500 rounded-r-2xl" type="submit"><img class="w-5" src="./../../svg/search.svg" alt="Search"></button>
-            </form> -->
-        <!-- Navigation list -->
-        <ul id="hamburger-menu" class="whitespace-nowrap offcanvas-r bg-white [&_li]:w-full [&_li]:text-center [&_a]:py-4 [&_a]:px-12 [&_a]:block [&_a]:w-h-full [&_a:hover]:bg-violet-200 md:bg-transparent md:gap-8 md:static md:flex-row md:[&_a]:p-0 md:[&_a:hover]:bg-transparent md:[&_a:hover]:text-violet-400 sidemenu-transition-300">
-            <li><a href="/about-us">About Us</a></li>
-            <!-- Display link to user's pages on different user type -->
-            <% if (user) { %>
-                <% if (userType == "Customer") { %>
-                    <!-- Customer page -->
-                    <li><a href="/users/customer">Shop</a></li>
-                <% } else if (userType == "Vendor") { %>
-                    <!-- Vendor page -->
-                    <li><a href="/users/vendor">Products</a></li>
-                <% } else if (userType == "Shipper") { %>
-                    <!-- Vendor page -->
-                    <li><a href="/users/Shipper">Orders</a></li>
+    
+        <!-- search -->
+        <div class="h-12 w-full max-w-xs xl:max-w-lg 2xl:max-w-2xl bg-gray-100 rounded-md hidden xl:flex items-center">
+          <input class=" w-full h-full border-gray-300 bg-transparent font-semibold text-sm pl-4" type="text" placeholder="I'm searching for ...">
+          <button type="button" class="flex items-center justify-center border-2 h-full rounded-r-lg hover:bg-gray-300">
+          <svg class="mr-4 ml-auto h-5 px-4 text-gray-500" aria-hidden="true" focusable="false" data-prefix="far" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-search fa-w-16 fa-9x"><path fill="currentColor" d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"></path></svg></button>
+        </div>
+    
+        <!-- phone number -->
+        <div class="ml-auto md:w-48 hidden sm:flex flex-col place-items-end">
+          <span class="font-bold md:text-xl text-white">0 123 456 78-90</span>
+          <span class="font-semibold text-sm text-white">Support 8AM-9AM</span>
+        </div>
+    
+        <!--Customer buttons -->
+        <nav class="contents">
+          <ul class="ml-4 xl:w-48 flex items-center justify-end">
+            <li class="ml-2 lg:ml-4 relative inline-block">
+                <% if (user) { %>
+                    <% if (userType == "Customer") { %>
+                        <!-- Customer My Account Link -->
+                        <li id="user" data-user-type="<%= userType %>" class="h-9 lg:h-10 p-2 text-gray-500 cursor-pointer relative "><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
+                    <% } else if (userType == "Vendor") { %>
+                        <!-- Vendor My Account Link -->
+                        <li id="user" data-user-type="<%= userType %>" class="h-9 lg:h-10 p-2 text-gray-500 cursor-pointer relative "><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
+                    <% } else if (userType == "Shipper") { %>
+                        <!-- Vendor My Account Link -->
+                        <li id="user" data-user-type="<%= userType %>" class="h-9 lg:h-10 p-2 text-gray-500 cursor-pointer relative "><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
+                    <% } %>
+                <% } else { %>
+                    <!-- Login Link -->
+                    <li class=""><svg class="h-9 lg:h-10 p-2 text-white cursor-pointer" onclick="window.location.href='/auth/login'" aria-hidden="true" focusable="false" data-prefix="far" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-user fa-w-14 fa-9x"><path fill="currentColor" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg></li>
                 <% } %>
-            <% } else { %>
-                <li><a href="/users/customer">Shop</a></li>
-            <% } %>
-            <li><a href="/contact-us">Contact Us</a></li>
-            <!-- Code that separates My Account and Login -->
-            <% if (user) { %>
-                <% if (userType == "Customer") { %>
-                    <!-- Customer My Account Link -->
-                    <li id="user" data-user-type="<%= userType %>" class="-order-1 relative md:order-1 p-4 md:p-0 flex flex-row justify-center"><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
-                <% } else if (userType == "Vendor") { %>
-                    <!-- Vendor My Account Link -->
-                    <li id="user" data-user-type="<%= userType %>" class="-order-1 relative md:order-1 p-4 md:p-0 flex flex-row justify-center"><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
-                <% } else if (userType == "Shipper") { %>
-                    <!-- Vendor My Account Link -->
-                    <li id="user" data-user-type="<%= userType %>" class="-order-1 relative md:order-1 p-4 md:p-0 flex flex-row justify-center"><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
-                <% } %>
-            <% } else { %>
-                <!-- Login Link -->
-                <li class="-order-1 md:order-1 p-4 md:p-0 flex flex-row justify-center"><img class="w-10 md:w-8 cursor-pointer" onclick="window.location.href='/auth/login'" src="/svg/login-box-line.svg" alt="Login"></li>
-            <% } %>
-            <!-- Code that separates My Account and Login -->
-        </ul>
-
-        <!-- Hamburger menu -->
-        <div class="center-y md:hidden">
-			<button id="navbar-burger" class="center-y text-violet-600 p-1">
-				<svg class="block h-5 w-5 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-					<title>Mobile menu</title>
-					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-				</svg>
-			</button>
-		</div>
-    </nav>
+                <!-- Code that separates My Account and Login -->
+            </li>
+        <!--Cart button-->
+            <li class="ml-2 lg:ml-4 relative inline-block">
+              <a class="" href="/users/customer/shopping-cart">
+                <svg class="h-9 lg:h-10 p-2 text-white" aria-hidden="true" focusable="false" data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-shopping-cart fa-w-18 fa-9x"><path fill="currentColor" d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"></path></svg>
+                <% if (cart.length !== 0) { %>
+                <div class="absolute -top-1 right-0 z-10 bg-yellow-400 text-xs font-bold px-1 py-0.5 rounded-sm"><%= cart.length %></div>
+                <% } %>    
+            </a>
+            </li>
+          </ul>
+        </nav>
+    
+      </div>
+      
+      <hr>
 </div>

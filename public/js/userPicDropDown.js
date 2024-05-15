@@ -28,6 +28,7 @@ $(document).ready(() => {
 
     dropDown.append(viewProfile)
     dropDown.append(logOut)
+    dropDown.append(viewProfile, $('<br>'), logOut);
 
     userProfile.append(dropDown)
 
