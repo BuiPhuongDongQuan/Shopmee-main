@@ -121,6 +121,25 @@ customerRouter.post('/profile/update-picture', (req, res) => {
 
 })
 
+///users/customer/storepage
+customerRouter.get("/storepage", async (req, res) => {
+    Product.distinct('brand')
+        .then((storeNames) => {
+            storeNames.forEach((storeName) => {
+                Product.find({ brand: storeName })
+                    .then((products) => {
+                        res.render("store_page", { storeName, products });
+                    })
+                    .catch((err) => {
+                        console.error('Error retrieving products: ', err);
+                    });
+            });
+        })
+        .catch((err) => {
+                console.error('Error retrieving store names: ', err);
+        });
+})
+
 // Add product to cart
 customerRouter.get("/:id/add", (req, res) => {
     // Getting productQuantity from query
