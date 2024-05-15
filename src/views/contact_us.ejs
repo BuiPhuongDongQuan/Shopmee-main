@@ -48,14 +48,14 @@
                     <h1 class="text-3xl font-bold mt-10 mx-5 block">Contact form</h1>
                     <div class="flex flex-col md:flex-row">
                         <div class="w-full md:w-1/2 mx-5">
-                            <!--Name-->
+                            <!--First Name-->
                             <div class="mb-4">
                                 
                                 <label class="block text-gray-700 mb-2" for="firstname">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline" viewBox="0 0 24 24"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"></path></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline" value="" viewBox="0 0 24 24"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"></path></svg>
                                     First name
                                 </label>
-                                <input class="border rounded-lg px-3 py-1 w-full" type="text" name="firstname" id="firstname" placeholder="Enter you first name">
+                                <input class="border rounded-lg px-3 py-1 w-full" type="text" name="firstname" id="firstname" placeholder="Enter you first name" onkeyup="checkFname()">
                             </div>
                             <div class="mb-4">
                                 <!--Email-->
@@ -63,17 +63,17 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline" viewBox="0 0 24 24"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"></path></svg>
                                     E-mail
                                 </label>
-                                <input class="border rounded-lg px-3 py-1 w-full" type="email" name="email" id="email" placeholder="ex: example@mail.com">
+                                <input class="border rounded-lg px-3 py-1 w-full" type="email" name="email" id="email" value="" placeholder="ex: example@mail.com" onkeyup="checkMail()">
                             </div>  
                         </div>
-                        <!--Name-->
+                        <!--Last Name-->
                         <div class="w-full md:w-1/2 mx-5">
                             <div class="mb-4">
                                 <label class="block text-gray-700 mb-2" for="lastname">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline" viewBox="0 0 24 24"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z"></path></svg>
                                     Last name
                                 </label>
-                                <input class="border rounded-lg px-3 py-1 w-full" type="text" name="lastname" id="lastname" placeholder="Enter your last name">
+                                <input class="border rounded-lg px-3 py-1 w-full" type="text" name="lastname" id="lastname" value="" placeholder="Enter your last name" onkeyup="checkLname()">
                             </div>
                         <!--Phone-->
                             <div class="mb-4">
@@ -81,92 +81,87 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline" viewBox="0 0 24 24"><path d="M9.36556 10.6821C10.302 12.3288 11.6712 13.698 13.3179 14.6344L14.2024 13.3961C14.4965 12.9845 15.0516 12.8573 15.4956 13.0998C16.9024 13.8683 18.4571 14.3353 20.0789 14.4637C20.599 14.5049 21 14.9389 21 15.4606V19.9234C21 20.4361 20.6122 20.8657 20.1022 20.9181C19.5723 20.9726 19.0377 21 18.5 21C9.93959 21 3 14.0604 3 5.5C3 4.96227 3.02742 4.42771 3.08189 3.89776C3.1343 3.38775 3.56394 3 4.07665 3H8.53942C9.0611 3 9.49513 3.40104 9.5363 3.92109C9.66467 5.54288 10.1317 7.09764 10.9002 8.50444C11.1427 8.9484 11.0155 9.50354 10.6039 9.79757L9.36556 10.6821ZM6.84425 10.0252L8.7442 8.66809C8.20547 7.50514 7.83628 6.27183 7.64727 5H5.00907C5.00303 5.16632 5 5.333 5 5.5C5 12.9558 11.0442 19 18.5 19C18.667 19 18.8337 18.997 19 18.9909V16.3527C17.7282 16.1637 16.4949 15.7945 15.3319 15.2558L13.9748 17.1558C13.4258 16.9425 12.8956 16.6915 12.3874 16.4061L12.3293 16.373C10.3697 15.2587 8.74134 13.6303 7.627 11.6707L7.59394 11.6126C7.30849 11.1044 7.05754 10.5742 6.84425 10.0252Z"></path></svg>
                                     Phone
                                 </label>
-                                <input class="border rounded-lg px-3 py-1 w-full" type="tel" name="tel" id="tel" placeholder="ex: 0123456789">
+                                <input class="border rounded-lg px-3 py-1 w-full" type="tel" name="tel" id="tel" value="" placeholder="ex: 0123456789" onkeyup="checkPhone()">
                             </div>    
                         </div>
                     </div>
 
-                        <!--Contact Purpose-->
-                    <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="ml-5 mb-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Contact purpose <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                    </svg>
-                    </button>
-                    
-                        <!-- Dropdown menu -->
-                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Customer Support</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Lead Generation</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Feedback</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Press Inquiries</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Another</a>
-                        </li>
-                        </ul>
+                        <!-- Contact purpose -->
+                        <div class="">
+                            <label for="purpose" class="block mb-2 mx-5 font-medium text-gray-900 dark:text-white">Contact purpose</label>
+                            <select id="purpose" class="mb-4 mx-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[80%] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected value="">Customer Support</option>
+                                <option value="">Feedback and Suggestions</option>
+                                <option value="">Press Inquiries</option>
+                                <option value="">Wholesale Inquiries</option>
+                        </select>
                     </div>
-
                         <!--Prefered contact method-->
-                        <div class="ml-5">Prefered contact method</div>
+                    <div>
+                        <div class="ml-5 font-medium">Prefered contact method</div>
                         <div class="ml-5 flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
                             <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="bordered-radio-1" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+                            <label for="bordered-radio-1" class="w-full py-4 ms-2 text-sm text-gray-900 dark:text-gray-300">Email</label>
                         </div>
+
                         <div class="ml-5 mb-4 flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
                             <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="bordered-radio-2" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone</label>
+                            <label for="bordered-radio-2" class="w-full py-4 ms-2 text-sm text-gray-900 dark:text-gray-300">Phone</label>
                         </div>
-                        
+                    </div>
                         <!--Contact days-->
-                        <div class="mb-4 ml-5">Contact days</div>                           
-                        <div class="mb-4 flex">
+                    <div>
+                        <div class="mb-4 ml-5 font-medium">Contact days</div>                           
+                        <div class="mb-4 ml-3 flex">
                             <div class="flex items-center me-4">
-                                <input id="inline-checkbox" type="checkbox" value="" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Monday</label>
+                                <input checked id="inline-checkbox" type="checkbox" value="" onclick="checkBox()" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="inline-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">Monday</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input id="inline-2-checkbox" type="checkbox" value="" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-2-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tuesday</label>
+                                <input id="inline-2-checkbox" type="checkbox" value="" onclick="checkBox()" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="inline-2-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">Tuesday</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input id="inline-3-checkbox" type="checkbox" value="" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-3-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Wednesday</label>
+                                <input id="inline-3-checkbox" type="checkbox" value="" onclick="checkBox()" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="inline-3-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">Wednesday</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input id="inline-4-checkbox" type="checkbox" value="" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-4-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Thursday</label>
+                                <input id="inline-4-checkbox" type="checkbox" value="" onclick="checkBox()" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="inline-4-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">Thursday</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input id="inline-5-checkbox" type="checkbox" value="" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-5-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Friday</label>
+                                <input id="inline-5-checkbox" type="checkbox" value="" onclick="checkBox()" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="inline-5-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">Friday</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input id="inline-6-checkbox" type="checkbox" value="" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-6-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Saturday</label>
+                                <input id="inline-6-checkbox" type="checkbox" value="" onclick="checkBox()" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="inline-6-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">Saturday</label>
                             </div>
                             <div class="flex items-center me-4">
-                                <input id="inline-7-checkbox" type="checkbox" value="" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="inline-7-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sunday</label>
+                                <input id="inline-7-checkbox" type="checkbox" value="" onclick="checkBox()" class=" ml-3 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="inline-7-checkbox" class="ms-2 text-sm text-gray-900 dark:text-gray-300">Sunday</label>
                             </div>
 
                         </div>
-
+                    </div>
                         <!--Message-->
                     <div class="mx-5 mb-4">
-                        <label class="block text-gray-700 mb-2" for="message">
+                        <label class="block text-gray-700 mb-2 font-medium" for="message">
                             Message:
                         </label>
-                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 h-60 resize-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" rows="5" placeholder="Enter your message"></textarea>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 h-60 resize-none text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" value="" rows="5" placeholder="Enter your message" onkeyup="checkMess()"></textarea>
                     </div>
+                    <!--Alert-->
+                    <p class="ml-4 text-red-700" id="mess_checkbox" style="display:none">Contact days: You must check at least one day!</p>
+                    <p class="ml-4 text-red-700" id="mess_fname" style="display:none">First name: You must enter at least 3 letters</p>
+                    <p class="ml-4 text-red-700" id="mess_lname" style="display:none">Last name: You must enter at least 3 letters</p>
+                    <p class="ml-4 text-red-700" id="mess_mail" style="display:none">Email: Invalid email!</p>
+                    <p class="ml-4 text-red-700" id="mess_phone" style="display:none">Phone: You must enter 9 to 11 digits</p>
+                    <p class="ml-4 text-red-700" id="mess_checkbox" style="display:none">Contact days: You must check at least one day!</p>
+                    <p class="ml-4 text-red-700" id="mess_mess" style="display:none">Messenge: should be between 50 and 500 letters</p>
+                    <!--Button-->
                     <div class="flex flex-row" >
-                        <button type="reset" class="bg-red-500 hover:bg-red-700 text-white cursor-pointer w-full py-2 px-4 rounded-md text-center block text-base mx-5 my-4 transition duration-300 ease-in-out">Clear</button>
+                        <button type="reset" value="Reset" class="bg-red-500 hover:bg-red-700 text-white cursor-pointer w-full py-2 px-4 rounded-md text-center block text-base mx-5 my-4 transition duration-300 ease-in-out">Reset</button>
                         <a href="/" class="bg-green-500 hover:bg-green-700 text-white cursor-pointer w-full py-2 px-4 rounded-md text-center block text-base mx-5 my-4 transition duration-300 ease-in-out">Send</a>
                     </div> 
                 </form>    
@@ -174,4 +169,74 @@
         </div>
     </main>
     <%- include('partials/_footer.ejs') %>
+    <!--Rule-->
+    <script>
+    function checkFname() {
+        let first_name = document.getElementById("firstname").value;
+        var check = document.getElementById("mess_fname");
+        if (first_name.length < 3){
+            check.style.display = "block";
+        } else {
+            check.style.display = "none";
+        }
+    }
+    function checkLname() {
+        let last_name = document.getElementById("lastname").value;
+        var check = document.getElementById("mess_lname");
+        if (last_name.length < 3){
+            check.style.display = "block";
+        } else {
+            check.style.display = "none";
+        }
+    }
+    function checkMail() {
+        let mail = document.getElementById("email").value;
+        var check = document.getElementById("mess_mail");
+        if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail)){
+            check.style.display = "block";
+        } else {
+            check.style.display = "none";
+        }
+    }
+    function checkPhone() {
+        let phone = document.getElementById("tel").value;
+        var check = document.getElementById("mess_phone");
+        if (!/^\d{9,11}$/.test(phone)){
+            check.style.display = "block";
+        } else {
+            check.style.display = "none";
+        }
+    }
+    function checkBox() {
+        var checkBox_1 = document.getElementById("inline-checkbox");
+        var checkBox_2 = document.getElementById("inline-2-checkbox");
+        var checkBox_3 = document.getElementById("inline-3-checkbox");
+        var checkBox_4 = document.getElementById("inline-4-checkbox");
+        var checkBox_5 = document.getElementById("inline-5-checkbox");
+        var checkBox_6 = document.getElementById("inline-6-checkbox");
+        var checkBox_7 = document.getElementById("inline-7-checkbox");
+
+        var check = document.getElementById("mess_checkbox");
+        if (checkBox_1.checked||checkBox_2.checked||checkBox_3.checked||checkBox_4.checked||checkBox_5.checked||checkBox_6.checked||checkBox_7.checked == true){
+            check.style.display = "none";
+        } else {
+            check.style.display = "block";
+        }
+    }
+    function checkMess() {
+        let mess = document.getElementById("message").value;
+        var check = document.getElementById("mess_mess");
+
+        // Regular expression to check for 50 to 500 letters, including spaces and special characters
+        const messageRegex = /^[a-zA-Z\s!@#$%^&*(),.?":{}|<>]{50,500}$/;
+
+        if (!messageRegex.test(mess)) {
+            check.style.display = "block";
+        } else {
+            check.style.display = "none";
+        }
+    }
+
+    </script>
 </body>
+</html>
