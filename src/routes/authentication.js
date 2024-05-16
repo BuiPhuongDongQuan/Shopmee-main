@@ -48,8 +48,7 @@ router.get('/profile', (req, res) => {
 
 // Forgot password page
 router.get('/forgot-password', (req, res) => {
-    const user = req.session.user
-    res.render("forgot_password", { user })
+    res.render("forgot_password")
 }) 
 
 
@@ -466,6 +465,30 @@ router.get('/logout', (req, res) => {
     })
 })
 
+// Forgot password handle
+router.post('/forgot-password', (req,res) => {
+    const { username } = req.body;
+    console.log(req.body)
+
+    Promise.all([
+        Customer.findOne({ username: username}).exec(),
+        Vendor.findOne({ username: username}).exec(),
+        Shipper.findOne({ username: username}).exec(),
+    ])
+        .then(([customer, vendor, shipper]) => {
+            if (customer || vendor || shipper) {
+                console.log('User found:', customer, vendor, shipper);
+                res.status(200).send("User already exists with that username");
+            } else {
+                res.status(404).send("User is not registered");
+            }
+        })
+        .catch(err => {
+            console.error('Error querying the database:', err);
+            res.send("An error occurred");
+        });
+
+})
 
 // Function to save the user's picture as buffer 
 function saveUserCover(user, coverEncoded) {
