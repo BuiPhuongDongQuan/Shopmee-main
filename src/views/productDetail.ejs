@@ -55,7 +55,9 @@
                         <p class="text-sm inline">Publisher: <span class="text-gray-400"><%= product.publisher.businessName %></span></p>
                     </div>
                     <div class="mt-2">
-                        <a href="/users/customer/storepage"><p class="text-sm inline">Store: <span class="text-gray-400"><%= product.publisher.businessName %></span></p></a>
+                        <a href="/users/customer/storepage/<%= product.brand %>">
+                            <p class="text-sm inline">Store: <span class="text-gray-400"><%= product.brand %></span></p>
+                        </a>
                     </div>                  
                     <!-- Tags -->
                     <div class="flex flex-wrap gap-x-2">

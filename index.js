@@ -39,7 +39,7 @@ const app = express();
 const PORT = process.env.PORT || 6900;
 
 // Mongoose + MongoDB
-const MONGODB_URI = "mongodb+srv://minhkhoi111104:11112004Khoi@cluster0.b66ds4d.mongodb.net/"
+const MONGODB_URI = "mongodb+srv://buidongquan37:Bimbim030704@cluster0.7udim3c.mongodb.net/"
 mongoose.connect(MONGODB_URI, { useNewURLParser: true })
 .then(() => console.log('MongoDB Connected...'))
 .catch(err => console.log(err))
@@ -96,6 +96,5 @@ app.set("view engine", "ejs");
 app.use('/auth', register_loginRoute);
 app.use("/users", ensureAuthenticated, userRouter);
 app.use("/", indexRouter);
-// app.use("/storepage", storeRouter)
 
 app.listen(PORT)
