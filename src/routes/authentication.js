@@ -46,6 +46,12 @@ router.get('/profile', (req, res) => {
     res.render("my_account", { user })
 }) 
 
+// Forgot password page
+router.get('/forgot-password', (req, res) => {
+    const user = req.session.user
+    res.render("forgot_password", { user })
+}) 
+
 
 // Register Customer Handle
 router.post('/register/customer', (req,res) => {
