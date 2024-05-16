@@ -162,7 +162,7 @@
                     <!--Button-->
                     <div class="flex flex-row" >
                         <button type="reset" value="Reset" class="bg-red-500 hover:bg-red-700 text-white cursor-pointer w-full py-2 px-4 rounded-md text-center block text-base mx-5 my-4 transition duration-300 ease-in-out">Reset</button>
-                        <a href="/" class="bg-green-500 hover:bg-green-700 text-white cursor-pointer w-full py-2 px-4 rounded-md text-center block text-base mx-5 my-4 transition duration-300 ease-in-out">Send</a>
+                        <a type="submit" onclick="return validateForm()" class="bg-green-500 hover:bg-green-700 text-white cursor-pointer w-full py-2 px-4 rounded-md text-center block text-base mx-5 my-4 transition duration-300 ease-in-out">Send</a>
                     </div> 
                 </form>    
             </div>
@@ -171,43 +171,75 @@
     <%- include('partials/_footer.ejs') %>
     <!--Rule-->
     <script>
-    function checkFname() {
+        function validateForm() {
+        var firstNameCheck = checkFname();
+        var lastNameCheck = checkLname();
+        var emailCheck = checkMail();
+        var phoneCheck = checkPhone();
+        var checkboxCheck = checkBox();
+        var messageCheck = checkMess();
+
+        if (firstNameCheck && lastNameCheck && emailCheck && phoneCheck && checkboxCheck && messageCheck) {
+            // All validations passed, submit the form
+            alert("Form submitted successfully!");
+            // Add your form submission logic here
+            return true;
+        } else {
+            // One or more validations failed, display an alert
+            alert("Please satisfy the requirements in the form before submitting.");
+            return false;
+        }
+        }
+
+        function checkFname() {
         let first_name = document.getElementById("firstname").value;
         var check = document.getElementById("mess_fname");
-        if (first_name.length < 3){
+        if (first_name.length < 3) {
             check.style.display = "block";
+            return false;
         } else {
             check.style.display = "none";
+            return true;
         }
-    }
-    function checkLname() {
+        }
+
+        function checkLname() {
         let last_name = document.getElementById("lastname").value;
         var check = document.getElementById("mess_lname");
-        if (last_name.length < 3){
+        if (last_name.length < 3) {
             check.style.display = "block";
+            return false;
         } else {
             check.style.display = "none";
+            return true;
         }
-    }
-    function checkMail() {
+        }
+
+        function checkMail() {
         let mail = document.getElementById("email").value;
         var check = document.getElementById("mess_mail");
-        if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail)){
+        if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(mail)) {
             check.style.display = "block";
+            return false;
         } else {
             check.style.display = "none";
+            return true;
         }
-    }
-    function checkPhone() {
+        }
+
+        function checkPhone() {
         let phone = document.getElementById("tel").value;
         var check = document.getElementById("mess_phone");
-        if (!/^\d{9,11}$/.test(phone)){
+        if (!/^\d{9,11}$/.test(phone)) {
             check.style.display = "block";
+            return false;
         } else {
             check.style.display = "none";
+            return true;
         }
-    }
-    function checkBox() {
+        }
+
+        function checkBox() {
         var checkBox_1 = document.getElementById("inline-checkbox");
         var checkBox_2 = document.getElementById("inline-2-checkbox");
         var checkBox_3 = document.getElementById("inline-3-checkbox");
@@ -217,13 +249,16 @@
         var checkBox_7 = document.getElementById("inline-7-checkbox");
 
         var check = document.getElementById("mess_checkbox");
-        if (checkBox_1.checked||checkBox_2.checked||checkBox_3.checked||checkBox_4.checked||checkBox_5.checked||checkBox_6.checked||checkBox_7.checked == true){
+        if (checkBox_1.checked || checkBox_2.checked || checkBox_3.checked || checkBox_4.checked || checkBox_5.checked || checkBox_6.checked || checkBox_7.checked) {
             check.style.display = "none";
+            return true;
         } else {
             check.style.display = "block";
+            return false;
         }
-    }
-    function checkMess() {
+        }
+
+        function checkMess() {
         let mess = document.getElementById("message").value;
         var check = document.getElementById("mess_mess");
 
@@ -232,10 +267,12 @@
 
         if (!messageRegex.test(mess)) {
             check.style.display = "block";
+            return false;
         } else {
             check.style.display = "none";
+            return true;
         }
-    }
+        }
 
     </script>
 </body>

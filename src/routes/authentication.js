@@ -35,6 +35,31 @@ router.get('/register/customer', (req, res) => {
 router.get('/register/vendor', (req, res) => {
     res.render("register_vendor")
 })
+// Forgot password page
+router.get('/forgot-password', async (req, res) => {
+    
+        res.render("forgot_password")
+
+})
+    
+router.post('/forgot-password', async (req, res) => {
+    try {
+      const { username } = req.body;
+      const user = await Customer.findOne(username);
+      console.log('User:', user)
+  
+      if (user) {
+        // Send password reset email or display a message
+        res.render('forgot_password', { message: 'Password reset instructions have been sent to your email.' });
+      } else {
+        // Display an error message
+        res.render('forgot_password', { username, error: 'User not found. Please check your username and try again.' });
+      }
+    } catch (err) {
+      console.error(err);
+      res.render('forgot_password', { error: 'An error occurred while processing your request. Please try again later.' });
+    }
+})
 // Shipper register page
 router.get('/register/shipper', (req, res) => {
     res.render("register_shipper")
@@ -460,7 +485,6 @@ router.get('/logout', (req, res) => {
     })
 })
 
-
 // Function to save the user's picture as buffer 
 function saveUserCover(user, coverEncoded) {
     if (coverEncoded == null) return
@@ -470,3 +494,4 @@ function saveUserCover(user, coverEncoded) {
         user.profilePictureType = profilePicture.type
     }
 }
+

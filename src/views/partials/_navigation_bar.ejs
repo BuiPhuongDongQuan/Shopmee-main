@@ -14,7 +14,7 @@
                 <!-- Customer page -->
                 <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/users/customer">Shop</a></li>
             <% } else if (userType == "Vendor") { %>
-                <!-- Vendor page -->
+                <!-- Store owner page -->
                 <li><a class="hover:text-gray-500 border-r-2 pr-4 text-white" href="/users/vendor">Products</a></li>
             <% } else if (userType == "Shipper") { %>
                 <!-- Shipper page -->
@@ -56,10 +56,10 @@
                         <!-- Customer My Account Link -->
                         <li id="user" data-user-type="<%= userType %>" class="h-9 lg:h-10 p-2 text-gray-500 cursor-pointer relative "><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
                     <% } else if (userType == "Vendor") { %>
-                        <!-- Vendor My Account Link -->
+                        <!-- Store owner My Account Link -->
                         <li id="user" data-user-type="<%= userType %>" class="h-9 lg:h-10 p-2 text-gray-500 cursor-pointer relative "><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
                     <% } else if (userType == "Shipper") { %>
-                        <!-- Vendor My Account Link -->
+                        <!-- Store owner My Account Link -->
                         <li id="user" data-user-type="<%= userType %>" class="h-9 lg:h-10 p-2 text-gray-500 cursor-pointer relative "><img class="w-10 md:w-8 object-cover aspect-square cursor-pointer rounded-full" src="<%= user.userPicture %>" alt="Account"></li>
                     <% } %>
                 <% } else { %>

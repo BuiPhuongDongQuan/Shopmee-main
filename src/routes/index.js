@@ -38,3 +38,7 @@ indexRouter.get("/term-of-service", (req, res) => {
 indexRouter.get("/faqs", (req, res) => {
     res.render("faqs")
 })
+
+// indexRouter.get("/forgot-password", (req, res) => {
+//     res.render("forgot_password")
+// })

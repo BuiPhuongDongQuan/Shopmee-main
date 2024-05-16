@@ -26,15 +26,15 @@
                     <div class="w-full md:w-3/5 m-2 p-2">
                         <div class="mb-4">
                             <label for="name" class="block text-gray-800 font-bold">Full Name:</label>
-                            <input type="text" id="name" class="w-full border border-gray-300 rounded p-2" value="<%- user.name || user.businessName || "Nguyen Van A" %>" readonly>
+                            <input type="text" id="name" class="w-full border border-gray-300 rounded p-2" value="<%- user.name || user.businessName || "Phan Van Teo" %>" readonly>
                         </div>
                         <div class="mb-4">
                             <label for="username" class="block text-gray-800 font-bold">Username:</label>
-                            <input type="text" id="username" class="w-full border border-gray-300 rounded p-2" value="<%- user.username || "nguyenvana123" %>" readonly>
+                            <input type="text" id="username" class="w-full border border-gray-300 rounded p-2" value="<%- user.username || "phanvanteo222" %>" readonly>
                         </div>
                         <div class="mb-4">
                             <label for="address" class="block text-gray-800 font-bold">Address:</label>
-                            <input type="text" id="address" class="w-full border border-gray-300 rounded p-2" value="<%- user.address|| user.businessAddress ||  "The White House" %>" readonly>
+                            <input type="text" id="address" class="w-full border border-gray-300 rounded p-2" value="<%- user.address|| user.businessAddress ||  "Earth" %>" readonly>
                         </div>
                         <div class="mb-4">
                             <label for="tel" class="block text-gray-800 font-bold">Phone number:</label>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="email" class="block text-gray-800 font-bold">Email:</label>
-                            <input type="email" id="email" class="w-full border border-gray-300 rounded p-2" value="<%- user.email || "nguyenvana@gmail.com" %>" readonly>
+                            <input type="email" id="email" class="w-full border border-gray-300 rounded p-2" value="<%- user.email || "phanvanteo222@gmail.com" %>" readonly>
                         </div>
                     </div>
                     <%- include('partials/_change_avatar.ejs') %>   
@@ -50,7 +50,7 @@
                 
             </div>
             <div class="flex flex-row justify-center">
-                <button onclick="window.location.href='/auth/logout'" class="m-3 py-2 px-6 bg-violet-300 text-white shadow-md rounded-2xl hover:opacity-80">Log out</button>
+                <button onclick="window.location.href='/auth/logout'" class="m-3 py-2 px-6 bg-gradient-to-r from-[#56CCF2] to-[#2F80ED] text-white shadow-md rounded-2xl hover:opacity-80">Log out</button>
             </div>
         </div>
     </main>
