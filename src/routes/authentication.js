@@ -487,7 +487,6 @@ router.post('/forgot-password', (req,res) => {
             console.error('Error querying the database:', err);
             res.send("An error occurred");
         });
-
 })
 
 // Function to save the user's picture as buffer 
