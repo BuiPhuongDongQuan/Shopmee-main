@@ -1,9 +1,9 @@
-// RMIT University Vietnam
+// RMIT University Vietnam 
 // Course: COSC2430 Web Programming
-// Semester: 2023A
-// Assessment: Assignment 2
-// Author: Hoang Thai Phuc, Nguyen Hoang Minh, Tran Nguyen Anh Minh, Tran Luu Quang Tung, Dao Bao Duy
-// ID: s3978081, s3977773, s3979367, s3978481, s3978826
+// Semester: 2024A 
+// Assessment: Full-Stack Web Application 
+// Author: Lam Quang Nhat, Bui Phuong Dong Quan, Nguyen Minh Khoi, Tran Gia Hung, Tran Nguyen Khang 
+// ID: s3980424, s3975939, s3978862, s3979486, s3935748 
 // Acknowledgement: W3School, TailwindCss, ChatGPT, Passport documentation, RemixIcons, Freepik, Web Dev Simplified
 
 import express from "express";
@@ -29,4 +29,12 @@ indexRouter.get("/contact-us", (req, res) => {
 
 indexRouter.get("/privacy-policy", (req, res) => {
     res.render("privacy_policy")
+})
+
+indexRouter.get("/term-of-service", (req, res) => {
+    res.render("term_of_service")
+})
+
+indexRouter.get("/faqs", (req, res) => {
+    res.render("faqs")
 })
