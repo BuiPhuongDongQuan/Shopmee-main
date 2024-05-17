@@ -36,6 +36,13 @@ const customerSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  email: {
+    type: String,
+    required: true,
+    minlength: 10,
+    maxlength: 50,
+    unique: true
   }
   // other fields specific to customer users
 });
@@ -69,6 +76,13 @@ const vendorSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  email: {
+    type: String,
+    required: true,
+    minlength: 10,
+    maxlength: 50,
+    unique: true
   }
   // other fields specific to vendor users
 });

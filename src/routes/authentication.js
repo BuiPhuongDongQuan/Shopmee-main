@@ -49,11 +49,11 @@ router.get('/profile', (req, res) => {
 
 // Register Customer Handle
 router.post('/register/customer', (req,res) => {
-    const { username, password, password2 , name, address, profilePicture} = req.body;
+    const { username, password, password2 , name, address, profilePicture, email} = req.body;
     let errors = []
     
     // Check required fields
-    if (!username || !password || !password2|| !name || !address || !profilePicture) {
+    if (!username || !password || !password2|| !name || !address || !profilePicture || !email) {
         errors.push({msg: "Please fill in all fields"})
     }
 
@@ -80,6 +80,11 @@ router.post('/register/customer', (req,res) => {
     // Check address length
     if (address.length < 5) {
         errors.push({msg: "Your address should be at least 5 characters long"})
+    }
+
+    // Check email
+    if (email.length < 10 ) {
+        errors.push({msg: "Wrong email form"})
     }
 
     // Regular Expressions for password requirements
@@ -112,7 +117,8 @@ router.post('/register/customer', (req,res) => {
             password,
             password2,
             name,
-            address
+            address,
+            email
         })
     } else {
         // Validation passed
@@ -132,7 +138,8 @@ router.post('/register/customer', (req,res) => {
                         password,
                         password2,
                         name,
-                        address
+                        address,
+                        email
                     })
                 } else {
                     // Creating new user object
@@ -140,7 +147,8 @@ router.post('/register/customer', (req,res) => {
                         username,
                         password,
                         name,
-                        address
+                        address,
+                        email
                     })
                     // Hash password
                     bcrypt.genSalt(10, (err, salt) => {
@@ -169,12 +177,12 @@ router.post('/register/customer', (req,res) => {
 
 // Register Vendor Handle
 router.post('/register/vendor', (req,res) => {
-    const { username, password, password2, name, address, profilePicture} = req.body;
+    const { username, password, password2, name, address, profilePicture, email} = req.body;
     let errors = []
     console.log(req.body)
 
     // Check required fields
-    if (!username || !password || !name || !address || !profilePicture ) {
+    if (!username || !password || !name || !address || !profilePicture || !email ) {
         errors.push({msg: "Please fill in all fields"})
     }
 
@@ -202,6 +210,12 @@ router.post('/register/vendor', (req,res) => {
     if (address.length < 5) {
         errors.push({msg: "Your address should be at least 5 characters long"})
     }
+
+    // Check email
+    if (email.length < 10 ) {
+        errors.push({msg: "Wrong email form"})
+    }
+
 
     // Regular Expressions for password requirements
     const hasUpperCase = new RegExp(/[A-Z]/);
@@ -233,7 +247,8 @@ router.post('/register/vendor', (req,res) => {
             password,
             password2,
             name,
-            address
+            address,
+            email
         })
     } else {
         // Validation passed
@@ -254,7 +269,8 @@ router.post('/register/vendor', (req,res) => {
                         password,
                         password2,
                         name,
-                        address
+                        address,
+                        email
                     })
                 } else {
 
@@ -268,7 +284,8 @@ router.post('/register/vendor', (req,res) => {
                                 password,
                                 password2,
                                 name,
-                                address
+                                address, 
+                                email
                             })
                         } else {
 
@@ -283,6 +300,7 @@ router.post('/register/vendor', (req,res) => {
                                         password2,
                                         name,
                                         address,
+                                        email
                                     })
                                 } else {
                                     // Creating new user object
@@ -290,7 +308,8 @@ router.post('/register/vendor', (req,res) => {
                                         username: username,
                                         password: password,
                                         businessName: name,
-                                        businessAddress: address
+                                        businessAddress: address,
+                                        email: email
                                     })
                                     // Hash password
                                     bcrypt.genSalt(10, (err, salt) => {
