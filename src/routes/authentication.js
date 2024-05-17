@@ -470,6 +470,10 @@ router.post('/forgot-password', (req,res) => {
     const { username } = req.body;
     console.log(req.body)
 
+    if (!username){
+        return res.status(400).send("Please provide an email address")
+    }
+
     Promise.all([
         Customer.findOne({ username: username}).exec(),
         Vendor.findOne({ username: username}).exec(),
@@ -478,7 +482,7 @@ router.post('/forgot-password', (req,res) => {
         .then(([customer, vendor, shipper]) => {
             if (customer || vendor || shipper) {
                 console.log('User found:', customer, vendor, shipper);
-                res.status(200).send("User already exists with that username");
+                res.status(200).send("We sent link for you to reset password. Please check your email!");
             } else {
                 res.status(404).send("User is not registered");
             }
