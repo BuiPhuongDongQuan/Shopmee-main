@@ -41,6 +41,11 @@ router.get('/profile', (req, res) => {
     res.render("my_account", { user })
 }) 
 
+// Forgot password page
+router.get('/forgot-password', (req, res) => {
+    res.render("forgot_password")
+}) 
+
 
 // Register Customer Handle
 router.post('/register/customer', (req,res) => {
@@ -353,6 +358,33 @@ router.get('/logout', (req, res) => {
     })
 })
 
+// Forgot password handle
+router.post('/forgot-password', (req,res) => {
+    const { username } = req.body;
+    console.log(req.body)
+
+    if (!username){
+        return res.status(400).send("Please provide an email address")
+    }
+
+    Promise.all([
+        Customer.findOne({ username: username}).exec(),
+        Vendor.findOne({ username: username}).exec(),
+        Shipper.findOne({ username: username}).exec(),
+    ])
+        .then(([customer, vendor, shipper]) => {
+            if (customer || vendor || shipper) {
+                console.log('User found:', customer, vendor, shipper);
+                res.status(200).send("We sent link for you to reset password. Please check your email!");
+            } else {
+                res.status(404).send("User is not registered");
+            }
+        })
+        .catch(err => {
+            console.error('Error querying the database:', err);
+            res.send("An error occurred");
+        });
+})
 
 // Function to save the user's picture as buffer 
 function saveUserCover(user, coverEncoded) {

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/_head", {title: "Admin page"}) %>
+    <!-- <link rel="stylesheet" href="/vendor_page.css"> -->
+</head>
+<body>
+    <main class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-center text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Shop name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Service charge
+                    </th>
+                    <!-- <th scope="col" class="px-6 py-3">
+                        number of products
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Cancel
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                      Status
+                    </th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <% vendorsList.forEach(vendor => { %>
+                  <tr>
+                    <td data-label="Shop name"><%=  vendor.businessName %></td>
+                    <td data-label="Service charge"><input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required /></td>
+                    <!-- <td data-label="Number of products" >
+                        <% productsList.forEach(product => { %>
+                          <%= product.length %>
+                        <% }) %>
+                      </td>
+                    <td data-label="Cancel"><%= vendor.businessName %></td>
+                    <td data-label="Status"><%= vendor.businessName %></td> -->
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

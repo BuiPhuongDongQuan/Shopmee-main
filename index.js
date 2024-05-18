@@ -33,7 +33,8 @@ import { config } from "./src/configs/bs-config.js";
 //Routers import
 import { indexRouter }  from "./src/routes/index.js";
 import { userRouter } from "./src/routes/users.js";
-// import { storeRouter } from "./src/routes/storePage.js";
+//import { storeRouter } from "./src/routes/storePage.js";
+import { adminRouter } from "./src/routes/admin.js"
 
 const app = express();
 const PORT = process.env.PORT || 6900;
@@ -94,5 +95,6 @@ app.set("view engine", "ejs");
 app.use('/auth', register_loginRoute);
 app.use("/users", ensureAuthenticated, userRouter);
 app.use("/", indexRouter);
+app.use('/admin', adminRouter)
 
 app.listen(PORT)
