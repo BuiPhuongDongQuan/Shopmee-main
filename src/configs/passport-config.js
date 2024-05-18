@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 import bcrypt from "bcrypt"
 
 // Load User Models
-import { Customer , Vendor, Shipper } from "../models/User.js"
+import { Customer , Vendor } from "../models/User.js"
 
 export const initializePassport = (passport) => {
     passport.use(
@@ -13,7 +13,6 @@ export const initializePassport = (passport) => {
                 const results = await Promise.all([
                     Customer.findOne({ username }).exec(),
                     Vendor.findOne({ username }).exec(),
-                    Shipper.findOne({ username }).exec(),
                 ]);
                 const user = results.find(result => result !== null);
             
@@ -50,7 +49,6 @@ export const initializePassport = (passport) => {
         Promise.all([
             Customer.findById(id).exec(),
             Vendor.findById(id).exec(),
-            Shipper.findById(id).exec(),
           ])
             .then((results) => {
               const user = results.find((result) => result !== null);

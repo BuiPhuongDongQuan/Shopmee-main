@@ -9,7 +9,6 @@
 import express from "express";
 export const userRouter = express.Router();
 import { vendorRouter } from "./vendor.js";
-import { shipperRouter } from "./shipper.js";
 import { customerRouter } from "./customer.js";
 
 // Checking userTypes
@@ -48,5 +47,4 @@ userRouter.use("/customer", checkCustomer, customerRouter)
 // Vendor route
 userRouter.use("/vendor", checkVendor, vendorRouter)
 
-// Shipper route
-userRouter.use("/shipper", checkShipper, shipperRouter)
+
