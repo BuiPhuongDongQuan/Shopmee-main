@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/_head", {title: "Store page"}) %> 
+</head>
+<body>
+    <%- include("partials/_header") %>
+    <section class="flex flex-col justify-center p-2 m-2 rounded  mt-10">
+        <h1>Welcome to <%= brand %></h1>
+        <!-- Div contains h1: Feautured product ...  -->
+<div class="flex flex-row justify-center mt-2 mx-1 mb-5">
+<h1 class="font-sans font-bold sm:text-3xl lg:text-3xl md:text-3xl italic my-3">
+    Featured Products
+</h1>
+</div>
+        <!-- Div contains h1: Feautured product ...  -->
+            <!-- Div contains product cards -->
+<div class="flex flex-row justify-around flex-wrap min-w-[240px] [&>div]:w-[90%] sm:[&>div]:w-2/5  md:[&>div]:w-1/5">
+<% if (locals.products != null) { %>
+    <% products.forEach(product => { %>
+        <%- include("partials/_card", {product}) %>
+    <% }); %>
+<% } %>
+</div>
+            <!-- Div contains product cards -->
+</section>
+</body>
+</html>

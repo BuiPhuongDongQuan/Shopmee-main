@@ -121,6 +121,19 @@ customerRouter.post('/profile/update-picture', (req, res) => {
 
 })
 
+///users/customer/storepage
+customerRouter.get("/storepage/:brand", async (req, res) => {
+    try {
+      const brand = req.params.brand;
+      const products = await Product.find({ brand });
+  
+      res.render("store_page", { brand, products });
+    } catch (err) {
+      console.error('Error retrieving products:', err);
+      res.status(500).send('Internal Server Error');
+    }
+});
+
 // Add product to cart
 customerRouter.get("/:id/add", (req, res) => {
     // Getting productQuantity from query
