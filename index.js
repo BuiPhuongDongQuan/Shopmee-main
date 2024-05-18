@@ -20,7 +20,7 @@ import { initializePassport } from './src/configs/passport-config.js'
 initializePassport(passport)
 
 // User models
-import { Customer , Vendor, Shipper } from "./src/models/User.js"
+import { Customer , Vendor } from "./src/models/User.js"
 
 //Authentication modules + route
 import { router as register_loginRoute } from './src/routes/authentication.js';
@@ -71,9 +71,7 @@ app.use((req, res, next) => {
         userType = "Customer"
     } else if (req.user instanceof Vendor) {
         userType = "Vendor"
-    } else if (req.user instanceof Shipper) {
-        userType = "Shipper"
-    }
+    } 
     
     res.locals.cart = req.session.cart || [];
     res.locals.success_msg = req.flash('success_msg')
