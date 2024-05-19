@@ -1,82 +1,185 @@
 <!-- RMIT University Vietnam -->
 <!-- Course: COSC2430 Web Programming -->
-<!-- Semester: 2023A -->
-<!-- Assessment: Assignment 2 -->
-<!-- Author: Hoang Thai Phuc, Nguyen Hoang Minh, Tran Nguyen Anh Minh, Tran Luu Quang Tung, Dao Bao Duy -->
-<!-- ID: s3978081, s3977773, s3979367, s3978481, s3978826 -->
+<!-- Semester: 2024A -->
+<!-- Assessment: Full-stack Web Application -->
+<!-- Author: Lam Quang Nhat,Bui Phuong Dong Quan, Nguyen Minh Khoi, Tran Nguyen Khang, Tran Gia Hung -->
+<!-- ID: s3980424, s3975939, s3978862, s3935748, S3979486 -->
 <!-- Acknowledgement: W3School, TailwindCss, ChatGPT, Passport documentation, RemixIcons, Freepik, Web Dev Simplified -->
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include("partials/_head", {title: "About Us"}) %>
+    <%- include('partials/_head.ejs', {title: "About us"}) %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            height: 100vh;
+        }
+        .box {
+            background: linear-gradient(to right, #56CCF2, #2F80ED);
+            border: 2px solid #ccc;
+            padding: 50px;
+            box-sizing: border-box;
+            font-family: Verdana, sans-serif;
+            font-size: 18px;
+            margin: 15px;
+            text-align: center;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            width: 340px;
+            height: 340px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+        }
+        .modal-content {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .modal-image {
+            width: 100%;
+            height: auto;
+        }
+        .modal-body {
+            padding: 1rem;
+        }
+        .square-frame {
+            width: 240px;
+            height: 240px;
+            overflow: hidden;
+        }
+        .square-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Apply rounded corners to all images */
+        img {
+            border-radius: 15px;
+        }
+    </style>
 </head>
 <body>
     <%- include('partials/_header.ejs') %>
-    <main>
-        <section class="2xl:container 2xl:mx-auto lg:py-12 lg:px-16 md:py-12 md:px-6 py-9 px-4">
-            <div class="flex flex-col lg:flex-row justify-between gap-8">
-                <div class="lg:w-1/4 flex flex-col justify-center m-2 p-1">
-                    <h1 class="flex justify-center text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4 m-1 p-1">About Us</h1>
-                    <p class="font-normal text-base leading-6 text-gray-600 italic m-1 p-1">We are Team 20 of the Assessment 2: Full-stack Web Application. 
-                        We build up this application with a view to welcoming customers to our new-released e-commerce platform. We look forward
-                        to hearing your responses about your experience in shoppping at our platform and we wish you a happy journey in 
-                        purchasing products and supports us.
-                    </p>
-                    <br>
-                    <p class="flex justify-center m-2 p-2 font-sans text-red-600 text-4xl italic font-bold ">
-                        Thank you for choosing us!!!
-                    </p>
-                </div>
-                <div class="lg:w-3/4 m-2 p-2">
-                    <img class="w-full h-4/5" src="images/background-image.jpg" alt="background-image" >
-                </div>
-            </div>
-            <div class="flex lg:flex-row flex-col justify-between gap-8 pt-12">
-                <div class="w-full lg:w-1/4 flex flex-col justify-center">
-                    <h1 class="flex justify-center text-3xl lg:text-4xl font-bold leading-9 text-gray-800 m-1 p-1">Our Story</h1>
-                    <p class="font-normal text-base leading-6 text-gray-600 italic m-1 p-1 sm:items-center">Our developer team finished this project in three weeks. 
-                        During this process, they had encountered so many bugs and difficulties but they still managed to accomplish 
-                        the objectives on time. 
-                    </p>
-                </div>
-                <div class="w-full lg:w-3/4 lg:pt-8">
-                    <div class="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
-                        <div class="p-4 pb-6 m-2 flex justify-center flex-col items-center lg:col-span-3 md:col-span-3 sm:col-span-2">
-                            <img class="md:block hidden w-[200px] h-[200px] rounded-full" src="images/nguyen-hoang-minh.jpg" alt="nguyen-hoang-minh" >
-                            <img class="md:hidden block w-[200px] h-[200px] rounded-full" src="images/nguyen-hoang-minh.jpg" alt="nguyen-hoang-minh" >
-                            <p class="font-medium text-lg leading-5 text-gray-800 mt-4">Nguyen Hoang Minh</p>
-                            <p class="font-normal text-lg leading-5 text-gray-800 mt-4">Project Manager</p>
-                        </div>
-                        <div class="p-4 pb-6 m-2 flex justify-center flex-col items-center lg:col-span-3 md:col-span-3 sm:col-span-2">
-                            <img class="md:block hidden w-[200px] h-[200px] rounded-full" src="images/hoang-thai-phuc.jpg" alt="hoang-thai-phuc" >
-                            <img class="md:hidden block w-[200px] h-[200px] rounded-full" src="images/hoang-thai-phuc.jpg" alt="hoang-thai-phuc" >
-                            <p class="font-medium text-lg leading-5 text-gray-800 mt-4">Hoang Thai Phuc</p>
-                            <p class="font-normal text-lg leading-5 text-gray-800 mt-4">Technical Leader</p>
-                        </div>
-                        <div class="p-4 pb-6 m-2 flex justify-center flex-col items-center lg:col-span-2 md:col-span-3 sm:col-span-2">
-                            <img class="md:block hidden w-[200px] h-[200px] rounded-full" src="images/tran-nguyen-anh-minh.jpg" alt="tran-nguyen-anh-minh" >
-                            <img class="md:hidden block w-[200px] h-[200px] rounded-full" src="images/tran-nguyen-anh-minh.jpg" alt="tran-nguyen-anh-minh" >
-                            <p class="font-medium text-lg leading-5 text-gray-800 mt-4">Tran Nguyen Anh Minh</p>
-                            <p class="font-normal text-lg leading-5 text-gray-800 mt-4"></p>
-                        </div>
-                        <div class="p-4 pb-6 m-2 flex justify-center flex-col items-center lg:col-span-2 md:col-span-3 sm:col-span-2">
-                            <img class="md:block hidden w-[200px] h-[200px] rounded-full" src="images/dao-bao-duy.jpg" alt="dao-bao-duy" >
-                            <img class="md:hidden block w-[200px] h-[200px] rounded-full" src="images/dao-bao-duy.jpg" alt="dao-bao-duy" >
-                            <p class="font-medium text-lg leading-5 text-gray-800 mt-4">Dao Bao Duy</p>
-                            <p class="font-normal text-lg leading-5 text-gray-800 mt-4"></p>
-                        </div>
-                        <div class="p-4 pb-6 m-2 flex justify-center flex-col items-center lg:col-span-2 md:col-span-3 sm:col-span-2">
-                            <img class="md:block hidden w-[200px] h-[200px] rounded-full" src="images/tran-luu-quang-tung.jpg" alt="tran-luu-quang-tung" >
-                            <img class="md:hidden block w-[200px] h-[200px] rounded-full" src="images/tran-luu-quang-tung.jpg" alt="tran-luu-quang-tung" >
-                            <p class="font-medium text-lg leading-5 text-gray-800 mt-4">Tran Luu Quang Tung</p>
-                            <p class="font-normal text-lg leading-5 text-gray-800 mt-4"></p>
+
+    <div class="box-container">
+        <!-- Modal 1 -->
+        <div class="box font-bold" x-data="{ open: false }">
+            <button x-on:click="open = true">
+                <img src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/428708295_1086108912718502_7178094895815462115_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Z7kh8uWtudAQ7kNvgE7d2es&_nc_ht=scontent-hkg4-1.xx&oh=00_AYCyyOtI7Lr1p7ZCd-iFoj8odPZSeRhFFvbfFdJqa9XaMA&oe=664C06A5" alt="Lam Quang Nhat"> Lam Quang Nhat</button>
+            <div x-show="open" class="fixed inset-0 z-10 overflow-hidden flex items-center justify-center">
+                <div x-show="open" x-on:click="open = false" x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                <div x-show="open" x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform scale-75" x-transition:enter-end="transform scale-100" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform scale-100" x-transition:leave-end="transform scale-75" class="bg-white rounded-md shadow-xl overflow-hidden max-w-md w-full sm:w-96 md:w-1/2 lg:w-2/3 xl:w-1/3 z-50">
+                    <div class="bg-indigo-500 text-white px-4 py-2 flex justify-between">
+                        <h2 class="text-lg font-semibold">Lam Quang Nhat</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="https://scontent-hkg4-1.xx.fbcdn.net/v/t39.30808-6/428708295_1086108912718502_7178094895815462115_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Z7kh8uWtudAQ7kNvgE7d2es&_nc_ht=scontent-hkg4-1.xx&oh=00_AYCyyOtI7Lr1p7ZCd-iFoj8odPZSeRhFFvbfFdJqa9XaMA&oe=664C06A5" alt="Lam Quang Nhat info" class="modal-image">
+                        <div class="modal-body">
+                            <p>Data/Frontend Developer</p>
+                            <p>sID: s3980424</p>
+                            <p>Contact: 0938 xxx xxx</p>  
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="box font-bold" x-data="{ open: false }">
+            <button x-on:click="open = true"> <img src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-6/357465007_966412927945837_1864800245397670222_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FfWuzoptL3gQ7kNvgF99AWW&_nc_ht=scontent-hkg1-1.xx&oh=00_AYCzRTrx9Ltks9s-crBxZYDH2mOY1P2NK2kZUEnLq_stEg&oe=664C218B" alt="Bui Phuong Dong Quan"> Bui Phuong Dong Quan</button>
+            <div x-show="open" class="fixed inset-0 z-10 overflow-hidden flex items-center justify-center">
+                <div x-show="open" x-on:click="open = false" x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                <div x-show="open" x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform scale-75" x-transition:enter-end="transform scale-100" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform scale-100" x-transition:leave-end="transform scale-75" class="bg-white rounded-md shadow-xl overflow-hidden max-w-md w-full sm:w-96 md:w-1/2 lg:w-2/3 xl:w-1/3 z-50">
+                    <div class="bg-indigo-500 text-white px-4 py-2 flex justify-between">
+                        <h2 class="text-lg font-semibold">Bui Phuong Dong Quan</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="https://scontent-hkg1-1.xx.fbcdn.net/v/t39.30808-6/357465007_966412927945837_1864800245397670222_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FfWuzoptL3gQ7kNvgF99AWW&_nc_ht=scontent-hkg1-1.xx&oh=00_AYCzRTrx9Ltks9s-crBxZYDH2mOY1P2NK2kZUEnLq_stEg&oe=664C218B" alt="Bui Phuong Dong Quan info" class="modal-image">
+                        <div class="modal-body">
+                            <p>Front/Backend Developer</p>
+                            <p>sID: s3975939</p>
+                            <p>Contact: 0967 xxx xxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 3 -->
+        <div class="box font-bold" x-data="{ open: false }">
+            <button x-on:click="open = true"><img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/313022451_1273273710104336_6875709747829067850_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-cuEkDWl3CcQ7kNvgGv7Cx6&_nc_ht=scontent.fsgn2-8.fna&oh=00_AYAr_oQ_L_MNCSUVslN1g5gQ8mzO2zpV_WscLNLFAE1SVg&oe=664CAB92" alt="Nguyen Minh Khoi"> Nguyen Minh Khoi</button>
+            <div x-show="open" class="fixed inset-0 z-10 overflow-hidden flex items-center justify-center">
+                <div x-show="open" x-on:click="open = false" x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                <div x-show="open" x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform scale-75" x-transition:enter-end="transform scale-100" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform scale-100" x-transition:leave-end="transform scale-75" class="bg-white rounded-md shadow-xl overflow-hidden max-w-md w-full sm:w-96 md:w-1/2 lg:w-2/3 xl:w-1/3 z-50">
+                    <div class="bg-indigo-500 text-white px-4 py-2 flex justify-between">
+                        <h2 class="text-lg font-semibold">Nguyen Minh Khoi</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/313022451_1273273710104336_6875709747829067850_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-cuEkDWl3CcQ7kNvgGv7Cx6&_nc_ht=scontent.fsgn2-8.fna&oh=00_AYAr_oQ_L_MNCSUVslN1g5gQ8mzO2zpV_WscLNLFAE1SVg&oe=664CAB92" alt="Nguyen Minh Khoi info" class="modal-image">
+                        <div class="modal-body">
+                            <p>Backend Developer</p>
+                            <p>sID: s3978862</p>
+                            <p>Contact: 0964 xxx xxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 4 -->
+        <div class="box font-bold" x-data="{ open: false }">
+            <button x-on:click="open = true"><img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/274232908_1372744109908037_7371532133881883697_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=hY9ShtlBJCIQ7kNvgF95m4n&_nc_oc=AdhnDAePlXtQeUt7hki2_PxXlDb8gmd4ICfPpjBrwcJCIU4KosDr1mbwey6AzUROCgM&_nc_ht=scontent.fsgn2-8.fna&oh=00_AYCz1n0rDJ7nYvMxD4h9x6V91Op58qHWGifUaxZl_XTvHg&oe=664CC262" alt="Tran Nguyen Khang image"> Tran Nguyen Khang</button>
+            <div x-show="open" class="fixed inset-0 z-10 overflow-hidden flex items-center justify-center">
+                <div x-show="open" x-on:click="open = false" x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                <div x-show="open" x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform scale-75" x-transition:enter-end="transform scale-100" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform scale-100" x-transition:leave-end="transform scale-75" class="bg-white rounded-md shadow-xl overflow-hidden max-w-md w-full sm:w-96 md:w-1/2 lg:w-2/3 xl:w-1/3 z-50">
+                    <div class="bg-indigo-500 text-white px-4 py-2 flex justify-between">
+                        <h2 class="text-lg font-semibold">Tran Nguyen Khang</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/274232908_1372744109908037_7371532133881883697_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=hY9ShtlBJCIQ7kNvgF95m4n&_nc_oc=AdhnDAePlXtQeUt7hki2_PxXlDb8gmd4ICfPpjBrwcJCIU4KosDr1mbwey6AzUROCgM&_nc_ht=scontent.fsgn2-8.fna&oh=00_AYCz1n0rDJ7nYvMxD4h9x6V91Op58qHWGifUaxZl_XTvHg&oe=664CC262" alt="Tran Nguyen Khang info" class="modal-image">
+                        <div class="modal-body">
+                            <p>Frontend Developer</p>
+                            <p>sID: s3935748</p>
+                            <p>Contact: 0943 xxx xxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal 5 -->
+        <div class="box font-bold" x-data="{ open: false }">
+            <button x-on:click="open = true"><img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/323685541_8853396541367333_8712089869120960320_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=kz-g4u-PiP8Q7kNvgFwU2zR&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYATWqthxTiA6s0ymzcNNdnGTaZxaUQmI5zL00xHqNrCSQ&oe=664CDF33" alt="Tran Gia Hung image"> Tran Gia Hung</button>
+            <div x-show="open" class="fixed inset-0 z-10 overflow-hidden flex items-center justify-center">
+                <div x-show="open" x-on:click="open = false" x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                <div x-show="open" x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform scale-75" x-transition:enter-end="transform scale-100" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform scale-100" x-transition:leave-end="transform scale-75" class="bg-white rounded-md shadow-xl overflow-hidden max-w-md w-full sm:w-96 md:w-1/2 lg:w-2/3 xl:w-1/3 z-50">
+                    <div class="bg-indigo-500 text-white px-4 py-2 flex justify-between">
+                        <h2 class="text-lg font-semibold">Tran Gia Hung</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-6/323685541_8853396541367333_8712089869120960320_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=kz-g4u-PiP8Q7kNvgFwU2zR&_nc_ht=scontent.fsgn2-6.fna&oh=00_AYATWqthxTiA6s0ymzcNNdnGTaZxaUQmI5zL00xHqNrCSQ&oe=664CDF33" alt="Tran Gia Hung info" class="modal-image">
+                        <div class="modal-body">
+                            <p>Frontend Developer</p>
+                            <p>sID: S3979486</p>
+                            <p>Contact: 0964 xxx xxx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <%- include('partials/_footer.ejs') %>
+    <script src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js" defer></script>
 </body>
 </html>
