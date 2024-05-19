@@ -267,3 +267,4 @@ function saveUserCover(user, coverEncoded) {
         user.profilePictureType = profilePicture.type
     }
 }
+

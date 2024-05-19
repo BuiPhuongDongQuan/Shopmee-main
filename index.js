@@ -20,7 +20,7 @@ import { initializePassport } from './src/configs/passport-config.js'
 initializePassport(passport)
 
 // User models
-import { Customer , Vendor, Shipper } from "./src/models/User.js"
+import { Customer , Vendor } from "./src/models/User.js"
 
 //Authentication modules + route
 import { router as register_loginRoute } from './src/routes/authentication.js';
@@ -33,6 +33,8 @@ import { config } from "./src/configs/bs-config.js";
 //Routers import
 import { indexRouter }  from "./src/routes/index.js";
 import { userRouter } from "./src/routes/users.js";
+//import { storeRouter } from "./src/routes/storePage.js";
+import { adminRouter } from "./src/routes/admin.js"
 
 const app = express();
 const PORT = process.env.PORT || 6900;
@@ -70,9 +72,7 @@ app.use((req, res, next) => {
         userType = "Customer"
     } else if (req.user instanceof Vendor) {
         userType = "Vendor"
-    } else if (req.user instanceof Shipper) {
-        userType = "Shipper"
-    }
+    } 
     
     res.locals.cart = req.session.cart || [];
     res.locals.success_msg = req.flash('success_msg')
@@ -95,5 +95,6 @@ app.set("view engine", "ejs");
 app.use('/auth', register_loginRoute);
 app.use("/users", ensureAuthenticated, userRouter);
 app.use("/", indexRouter);
+app.use('/admin', adminRouter)
 
 app.listen(PORT)

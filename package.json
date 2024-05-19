@@ -1,7 +1,7 @@
 {
   "name": "cosc2430-full-stack-web-application",
   "version": "1.0.0",
-  "description": "Fullstack website of group 20",
+  "description": "Fullstack website of Group G5",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rainb0wBanana/COSC2430-Full-stack-Web-Application.git"
+    "url": "git+https://github.com/BuiPhuongDongQuan/Shopmee-main.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rainb0wBanana/COSC2430-Full-stack-Web-Application/issues"
+    "url": "https://github.com/BuiPhuongDongQuan/Shopmee-main/issues"
   },
-  "homepage": "https://github.com/Rainb0wBanana/COSC2430-Full-stack-Web-Application#readme",
+  "homepage": "https://github.com/BuiPhuongDongQuan/Shopmee-main",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-flash": "^0.1.1",
